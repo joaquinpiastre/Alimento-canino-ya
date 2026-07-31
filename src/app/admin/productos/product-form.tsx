@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { ImagePlus, X } from "lucide-react";
 import { productSchema, type ProductInput } from "@/lib/validations";
 import { createProduct, updateProduct } from "@/actions/admin-products";
-import { fileToDataUrl } from "@/lib/files";
+import { resizeImageFile } from "@/lib/files";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -91,26 +91,36 @@ export function ProductForm({
     });
 
     if (validFiles.length === 0) return;
-    const dataUrls = await Promise.all(validFiles.map(fileToDataUrl));
-    addImages(dataUrls);
-    toast.success(validFiles.length > 1 ? "Imágenes agregadas" : "Imagen agregada");
+    try {
+      const dataUrls = await Promise.all(validFiles.map((file) => resizeImageFile(file)));
+      addImages(dataUrls);
+      toast.success(validFiles.length > 1 ? "Imágenes agregadas" : "Imagen agregada");
+    } catch {
+      toast.error("No se pudieron procesar las imágenes");
+    }
   }
 
   async function onSubmit(data: ProductInput) {
     setLoading(true);
-    const payload = { ...data, images };
-    const result = productId
-      ? await updateProduct(productId, payload)
-      : await createProduct(payload);
-    setLoading(false);
+    try {
+      const payload = { ...data, images };
+      const result = productId
+        ? await updateProduct(productId, payload)
+        : await createProduct(payload);
 
-    if (!result.ok) {
-      toast.error(result.message);
-      return;
+      if (!result.ok) {
+        toast.error(result.message);
+        return;
+      }
+      toast.success(result.message);
+      router.push("/admin/productos");
+      router.refresh();
+    } catch (error) {
+      console.error(error);
+      toast.error("No se pudo guardar el producto. Probá con imágenes más livianas.");
+    } finally {
+      setLoading(false);
     }
-    toast.success(result.message);
-    router.push("/admin/productos");
-    router.refresh();
   }
 
   return (
