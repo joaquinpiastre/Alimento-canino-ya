@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PawPrint } from "lucide-react";
+import { Logo } from "@/components/logo";
 
 export function AuthCard({
   title,
@@ -14,11 +14,8 @@ export function AuthCard({
 }) {
   return (
     <div className="mx-auto flex min-h-[calc(100vh-8rem)] max-w-md flex-col justify-center px-4 py-12">
-      <Link href="/" className="mb-6 flex items-center justify-center gap-2">
-        <span className="flex size-10 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-          <PawPrint className="size-5" />
-        </span>
-        <span className="font-heading text-lg font-semibold">Alimento Canino Ya</span>
+      <Link href="/" className="mb-6 flex items-center justify-center">
+        <Logo height={38} />
       </Link>
       <div className="rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8">
         <h1 className="font-heading text-2xl font-semibold text-foreground">{title}</h1>

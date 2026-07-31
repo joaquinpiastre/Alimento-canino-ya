@@ -1,17 +1,15 @@
 import Link from "next/link";
-import { PawPrint, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { STORE_ADDRESS } from "@/lib/store-info";
+import { Logo } from "@/components/logo";
 
 export function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-border/60 bg-secondary/40">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-1">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="flex size-9 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-              <PawPrint className="size-5" />
-            </span>
-            <span className="font-heading text-lg font-semibold">Alimento Canino Ya</span>
+          <Link href="/" className="inline-flex items-center">
+            <Logo height={34} />
           </Link>
           <p className="mt-3 text-sm text-muted-foreground">
             Todo lo que tu perro necesita, con la calidez de una tienda que entiende de mascotas.

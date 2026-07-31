@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { PawPrint, Search, ShoppingCart, User, Menu, Heart } from "lucide-react";
+import { Search, ShoppingCart, User, Menu, Heart } from "lucide-react";
 import { useSession, signOut } from "next-auth/react";
+import { Logo, LogoMark } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -55,9 +56,8 @@ export function SiteHeader() {
           <SheetContent side="left" className="w-72">
             <SheetHeader>
               <SheetTitle>
-                <Link href="/" className="flex items-center gap-2 font-heading text-lg">
-                  <PawPrint className="size-5 text-primary" />
-                  Alimento Canino Ya
+                <Link href="/" className="flex items-center">
+                  <Logo height={32} />
                 </Link>
               </SheetTitle>
             </SheetHeader>
@@ -76,13 +76,9 @@ export function SiteHeader() {
           </SheetContent>
         </Sheet>
 
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="flex size-9 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-            <PawPrint className="size-5" />
-          </span>
-          <span className="hidden font-heading text-lg font-semibold text-foreground sm:inline">
-            Alimento Canino Ya
-          </span>
+        <Link href="/" className="flex shrink-0 items-center">
+          <LogoMark size={36} className="sm:hidden" />
+          <Logo height={34} className="hidden sm:inline-block" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1 ml-4">

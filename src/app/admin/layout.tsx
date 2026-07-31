@@ -6,10 +6,10 @@ import {
   Tags,
   ShoppingBag,
   Users,
-  PawPrint,
   ArrowLeft,
 } from "lucide-react";
 import { auth } from "@/auth";
+import { Logo } from "@/components/logo";
 
 const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -26,11 +26,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   return (
     <div className="flex min-h-screen bg-secondary/30">
       <aside className="hidden w-64 shrink-0 flex-col border-r border-border bg-card p-4 lg:flex">
-        <Link href="/" className="mb-8 flex items-center gap-2 px-2">
-          <span className="flex size-9 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-            <PawPrint className="size-5" />
-          </span>
-          <span className="font-heading text-base font-semibold">Alimento Canino Ya</span>
+        <Link href="/" className="mb-8 flex items-center px-2">
+          <Logo height={30} />
         </Link>
         <nav className="flex flex-col gap-1">
           {NAV.map((item) => (
