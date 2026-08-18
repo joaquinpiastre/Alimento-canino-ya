@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Alimento Canino Ya",
   },
   description:
-    "Alimento balanceado, snacks y accesorios para perros con envío a todo el país. Comprá online de forma fácil, rápida y segura.",
+    "Alimento balanceado, snacks y accesorios para perros con envío a todo San Rafael. Comprá online de forma fácil, rápida y segura.",
 };
 
 export default function RootLayout({

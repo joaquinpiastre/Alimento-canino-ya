@@ -13,7 +13,7 @@ export default async function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:py-24">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-              <PawPrint className="size-4" /> Envíos a todo el país
+              <PawPrint className="size-4" /> Envíos a todo San Rafael
             </span>
             <h1 className="mt-5 font-heading text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
               Todo lo que tu perro necesita, <span className="text-primary">ya</span>.

@@ -19,8 +19,8 @@ const VALUES = [
   },
   {
     icon: Truck,
-    title: "Envíos a todo el país",
-    description: "Recibí tu pedido en la puerta de tu casa, estés donde estés.",
+    title: "Envíos a todo San Rafael",
+    description: "Recibí tu pedido en la puerta de tu casa, estés donde estés en San Rafael.",
   },
 ];
 
